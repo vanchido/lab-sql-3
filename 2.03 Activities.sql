@@ -36,7 +36,7 @@ limit 10;
 
 select loan_id, account_id, amount as debt_value from bank.loan 
 where status = 'B'
-and amount > '1000'
+and amount > 1000
 order by amount desc; 
 
 #2.02_activity_4
@@ -44,7 +44,8 @@ order by amount desc;
 select * from bank.trans
 order by amount asc;
 select max(amount) from bank.trans;
-select min(amount) from bank.trans;
+select min(amount) from bank.trans
+where amount != 0;
 
 select *, date_format(convert(date,date), '%Y') as opening_year from bank.account;
 
